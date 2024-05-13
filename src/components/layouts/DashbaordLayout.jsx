@@ -2,6 +2,7 @@ import { useState } from "react";
 import { RxCross1 } from "react-icons/rx";
 import { FcBrokenLink } from "react-icons/fc";
 import { MdMenu } from "react-icons/md";
+import { Link } from 'react-router-dom';
 const DashbaordLayout = () => {
     const [isActive, setIsActive] = useState(false);
 
@@ -12,22 +13,28 @@ const DashbaordLayout = () => {
     return (
         <div>
             <div className="relative">
-                <div className={`z-10 fixed pt-3 overflow-y-auto min-h-screen px-2 inset-y-0 left-0 transform ${isActive ? 'w-20 overflow-hidden bg-transparent hover:w-80 hover:bg-transparent translate-x-0 transition-all duration-200 ease-in-out hidden md:hidden lg:block' : 'w-64 transition-all duration-200 ease-in-out bg-white'} transition-all duration-200 ease-in-out mt-16 lg:mt-0 `}>
+                <div className={`z-10 fixed pt-3 overflow-y-auto min-h-screen px-2 inset-y-0 left-0 transform ${isActive ? 'w-20 overflow-hidden bg-transparent hover:w-72 hover:bg-transparent translate-x-0 transition-all duration-200 ease-in-out hidden md:hidden lg:block' : 'w-64 transition-all duration-200 ease-in-out bg-white'} transition-all duration-200 ease-in-out mt-16 lg:mt-0 `}>
                     <h1 className="my-5"> Logo</h1>
                     {
                         isActive ? <div className="bg-transparent text-black hidden lg:block z-10 hover:w-auto ">
                             <div className="flex flex-col items-start justify-center">
                                 <div className="dropdown dropdown-hover z-10 hover:w-64 bg-base-200">
                                     <div tabIndex={0} role="button" className="btn "><RxCross1 /></div>
-                                    <ul tabIndex={0} className="dropdown-content top-0 left-14 menu p-2 shadow bg-base-200 text-black rounded-box w-52">
-                                        <li><a>Item 1</a></li>
-                                        <li><a>Item 2</a></li>
+                                    <ul tabIndex={0} className="dropdown-content top-0 left-12  py-2 px-5 shadow bg-white text-black w-52">
+                                       <Link to="/"><li><a>Home</a></li></Link>
+                                       <Link to="/"><li><a>About</a></li></Link>
+                                       <Link to="/"><li><a>Contact</a></li></Link>
+                                       <Link to="/"><li><a>Blog</a></li></Link>
+                                       <Link to="/"><li><a>Service</a></li></Link>
+                                       <Link to="/"><li><a>More</a></li></Link>
                                     </ul>
                                 </div>
                                 <div className="dropdown dropdown-hover z-10 hover:w-64 bg-base-200">
                                     <div tabIndex={0} role="button" className="btn "><RxCross1 /></div>
-                                    <ul tabIndex={0} className="dropdown-content top-0 left-14 menu p-2 w-[calc(100%-80px)]">
-                                        <li><a>Item 1</a></li>
+                                    <ul tabIndex={0} className="dropdown-content top-0 left-12 py-2 px-5 shadow w-52 bg-white">
+                                       <Link to="/"><li><a>Blog</a></li></Link>
+                                       <Link to="/"><li><a>Service</a></li></Link>
+                                       <Link to="/"><li><a>More</a></li></Link>
                                     </ul>
                                 </div>
                             </div>
