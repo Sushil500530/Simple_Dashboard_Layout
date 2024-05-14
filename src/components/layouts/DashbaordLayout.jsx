@@ -22,19 +22,19 @@ const DashbaordLayout = () => {
                                     <div tabIndex={0} role="button" className="btn "><RxCross1 /></div>
                                     <ul tabIndex={0} className="dropdown-content top-0 left-12  py-2 px-5 shadow bg-white text-black w-52">
                                        <Link to="/"><li><a>Home</a></li></Link>
-                                       <Link to="/"><li><a>About</a></li></Link>
-                                       <Link to="/"><li><a>Contact</a></li></Link>
-                                       <Link to="/"><li><a>Blog</a></li></Link>
-                                       <Link to="/"><li><a>Service</a></li></Link>
-                                       <Link to="/"><li><a>More</a></li></Link>
+                                       <Link to="/about"><li><a>About</a></li></Link>
+                                       <Link to="/contact"><li><a>Contact</a></li></Link>
+                                       <Link to="/blog"><li><a>Blog</a></li></Link>
+                                       <Link to="/service"><li><a>Service</a></li></Link>
+                                       <Link to="/more"><li><a>More</a></li></Link>
                                     </ul>
                                 </div>
                                 <div className="dropdown dropdown-hover z-10 hover:w-64 bg-base-200">
                                     <div tabIndex={0} role="button" className="btn "><RxCross1 /></div>
                                     <ul tabIndex={0} className="dropdown-content top-0 left-12 py-2 px-5 shadow w-52 bg-white">
-                                       <Link to="/"><li><a>Blog</a></li></Link>
-                                       <Link to="/"><li><a>Service</a></li></Link>
-                                       <Link to="/"><li><a>More</a></li></Link>
+                                    <Link to="/blog"><li><a>Blog</a></li></Link>
+                                       <Link to="/service"><li><a>Service</a></li></Link>
+                                       <Link to="/more"><li><a>More</a></li></Link>
                                     </ul>
                                 </div>
                             </div>
