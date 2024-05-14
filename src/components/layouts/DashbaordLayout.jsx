@@ -3,10 +3,14 @@ import { RxCross1 } from "react-icons/rx";
 import { FcBrokenLink } from "react-icons/fc";
 import { MdMenu } from "react-icons/md";
 import { Link, Outlet } from 'react-router-dom';
+import {MenuLinks} from "../shared/menu/MenuLinks"
+
+
+
 const DashbaordLayout = () => {
     const [isActive, setIsActive] = useState(false);
 
-
+    console.log(MenuLinks);
     const handleToggleLeft = () => {
         setIsActive(!isActive);
     };
@@ -57,7 +61,7 @@ const DashbaordLayout = () => {
                 </div>
             </div>
             {/* <RxCross1 className="text-4xl text-red-500 cursor-pointer" /> */}
-            <div onClick={() => setIsActive(true)} className={`text-justify ${isActive ? 'w-full lg:w-[calc(100%-80px)]' : ' w-full lg:w-[calc(100%-256px)]'} pt-[5rem] float-right shadow transition-all duration-200 ease-in-out p-5`}>
+            <div className={`${isActive ? 'w-full lg:w-[calc(100%-80px)]' : ' w-full lg:w-[calc(100%-256px)]'} pt-[5rem] float-right shadow transition-all duration-200 ease-in-out p-5`}>
                 <Outlet></Outlet>
             </div>
         </div>
