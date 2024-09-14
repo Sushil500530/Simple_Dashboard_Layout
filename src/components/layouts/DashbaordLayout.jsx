@@ -15,26 +15,18 @@ const DashbaordLayout = () => {
     const handleToggleLeft = () => {
         setIsActive(!isActive);
     };
-    // className={` z-10 fixed pt-3 bg-blue-50 text-[#64748B]  mt-16 shadow-xl border overflow-y-auto w-64 h-screen px-0 inset-y-0 left-0 transform lg:hidden
-    // ${isActive && " transition-all duration-200 -translate-x-full"
-    //     } transition-all duration-200 px-5`}
     return (
         <div>
             <div className="relative">
                 <div
-                    className={` z-10 fixed bg-gray-500 text-[#64748B] shadow-xl overflow-y-auto min-h-screen inset-y-0 left-0 transform 
+                    className={` z-50 fixed bg-gray-500 text-[#64748B] shadow-xl overflow-y-auto min-h-screen inset-y-0 left-0 transform 
                  ${isActive ? "w-[70px] transition-all duration-200 -translate-x-full lg:translate-x-0" : "w-64 transition-all duration-200 ease-in-out bg-gray-500"
                         } transition-all duration-200 px-2`}
-                // className={`
-                // z-10 fixed pt-3 overflow-y-auto min-h-screen px-2 inset-y-0 left-0 transform 
-                //     ${isActive ? 'w-[70px] overflow-hidden bg-transparent hover:w-72 hover:bg-transparent lg:translate-x-0 transition-all duration-200 -translate-x-full ease-in-out hidden md:hidden lg:block'
-                //         : 'w-64 transition-all duration-200 ease-in-out bg-gray-500'}
-                //       transition-all duration-200 ease-in-out mt-16 lg:mt-0 
-                //       `}
+                
                 >
-                    <FcBrokenLink className="text-3xl relative left-1 w-full h-10 my-5 border-b" />
+                    <FcBrokenLink className="text-3xl relative left-1 w-full h-10 my-5 border-b z-50" />
                     {
-                        isActive ? <SMenubar /> : <LMenubar />
+                        isActive ? <SMenubar /> :<SMenubar />
                     }
                 </div>
                 <div className={`
@@ -70,7 +62,7 @@ const DashbaordLayout = () => {
             <div className={`
                 ${isActive ? 'w-full lg:w-[calc(100%-70px)]'
                     : ' w-full lg:w-[calc(100%-256px)]'}
-                  pt-[5rem] float-right shadow transition-all duration-200 ease-in-out p-5
+                  pt-[5rem] float-right shadow transition-all duration-200 ease-in-out p-5 -z-10
                   `}>
                 <Outlet></Outlet>
             </div>
