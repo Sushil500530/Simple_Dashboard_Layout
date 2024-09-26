@@ -1,6 +1,9 @@
 import { useState } from "react";
 import { Outlet } from "react-router-dom";
 import { RiMenu3Line } from "react-icons/ri";
+import AccordionLink from "../../reuseable/accordion-link/index.jsx";
+import { dashboardData } from "../../../data/menu-items/index.js";
+import AccordionMenu from "../../reuseable/accordion-menu/index.jsx";
 
 
 export default function SimpleDashboardLayout() {
@@ -23,13 +26,13 @@ export default function SimpleDashboardLayout() {
                     ${isActive ? "w-64 transition-all duration-200 translate-x-0" : "w-64 transition-all duration-200 -translate-x-full lg:translate-x-0"}`}
                 >
                     {/* logo  */}
-                    <div className="common-flex flex-col gap-1 w-full border-b border-b-gray-500 py-3">
-                       <h1 className="text-3xl font-bold">LoGO</h1>
+                    <div className="common-flex flex-col gap-1 w-full border-b border-b-gray-500 p-3">
+                       <h1 className="text-3xl font-bold">LOGO</h1>
                     </div>
                     {/* all menu link are here map or called  */}
                     <div className="common-flex flex-col
                      gap-1">
-                        {dashboardData.map((item) => (
+                        {dashboardData?.length > 0 && dashboardData.map((item) => (
                             item?.subMenu ? (
                                 <AccordionMenu
                                     key={item?.id}
@@ -39,7 +42,7 @@ export default function SimpleDashboardLayout() {
                                     onToggle={() => handleToggle(item?.id)}
                                 >
                                     {item?.subMenu.map((subItem, index) => (
-                                        <AccordionMenuLink
+                                        <AccordionLink
                                             key={index}
                                             pathName={subItem?.href}
                                             linkTitle={subItem?.title}
@@ -48,7 +51,7 @@ export default function SimpleDashboardLayout() {
                                     ))}
                                 </AccordionMenu>
                             ) : (
-                                <AccordionMenuLink
+                                <AccordionLink
                                     pathName={item?.href}
                                     linkTitle={item?.title}
                                     icon={item?.icon}
@@ -78,8 +81,3 @@ export default function SimpleDashboardLayout() {
   )
 }
 
-import { dashboardData } from "../../data/menu-items/index.jsx";
-import AccordionMenu from "../../components/link-accordion/index.jsx";
-import AccordionMenuLink from "../../components/menu-accordion/index.jsx";
-import Logo from "../../components/shared/logo/index.jsx";
- 
