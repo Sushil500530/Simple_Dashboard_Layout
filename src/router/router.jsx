@@ -36,6 +36,22 @@ const router = createBrowserRouter([
                 path:'more',
                 element: <More />
             },
+            {
+                path:"admin/overview",
+                element: <div className='w-full text-center my-5 font-bold text-2xl'>Admin Overvies page</div>
+            },
+            {
+                path:"admin/users",
+                element: <div className='w-full text-center my-5 font-bold text-2xl'>User section page</div>
+            },
+            {
+                path:"admin/reports/performance",
+                element: <div className='w-full text-center my-5 font-bold text-2xl'>Report performance page</div>
+            },
+            {
+                path:"admin/settings/profile",
+                element: <div className='w-full text-center my-5 font-bold text-2xl'>Profile Settings page</div>
+            },
             
         ]
     }
