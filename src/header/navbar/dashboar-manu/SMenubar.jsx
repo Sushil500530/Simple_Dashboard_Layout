@@ -38,16 +38,16 @@ const SMenubar = () => {
     <div className="bg-transparent text-black hidden lg:block z-50 hover:w-auto">
       <div className="flex flex-col items-start justify-center">
         {linkMenus.map((menu, index) => (
-          <div key={index} className="z-10 bg-base-200">
+          <div key={index} className="z-10 bg-base-200 relative">
             <div
               role="button"
-              className="btn flex items-center justify-start relative"
+              className="btn flex items-center justify-start"
               onClick={() => toggleMenu(index)} // Toggle sub-menu on click
             >
               {menu.icon}
             </div>
             {activeMenu === index && (
-              <ul className="py-2 px-5 shadow bg-gray-300 text-black w-52 absolute left-20 ">
+              <ul className="py-2 px-5 shadow bg-gray-300 text-black w-52 fixed left-20 z-50 ">
                 {menu.subTitle.map((sub, subIndex) => (
                   <li key={subIndex}>
                     <Link to={sub.path}>{sub.title}</Link>
