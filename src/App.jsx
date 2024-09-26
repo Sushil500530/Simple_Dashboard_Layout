@@ -1,4 +1,6 @@
+
 import DashbaordLayout from "./components/layouts/DashbaordLayout"
+import ModernDashboardLayout from "./components/layouts/modern-layout"
 import SimpleDashboardLayout from "./components/layouts/simple-layout"
 
 function App() {
@@ -6,6 +8,7 @@ function App() {
     <>
       <DashbaordLayout />
       {/* <SimpleDashboardLayout /> */}
+      {/* <ModernDashboardLayout /> */}
     </>
   )
 }

@@ -4,6 +4,7 @@ import { NavLink } from "react-router-dom";
 export default function AccordionLink({ pathName, linkTitle, icon: Icon, handleClick }) {
   return (
     <>
+    {/* show for medium and small devices  */}
       <NavLink
       onClick={handleClick}
         to={pathName}
@@ -22,6 +23,8 @@ export default function AccordionLink({ pathName, linkTitle, icon: Icon, handleC
         )}
         {linkTitle}
       </NavLink>
+
+      {/* show for lg devices  */}
       <NavLink
         to={pathName}
         className={({ isActive }) =>
