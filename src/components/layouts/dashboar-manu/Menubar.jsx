@@ -3,7 +3,7 @@ import { dashboardData } from "../../../data/menu-items";
 import AccordionLink from "../../reuseable/accordion-link";
 import AccordionMenu from "../../reuseable/accordion-menu";
 
-export function MenubarContent({handleToggleLeft}) {
+export function MenubarContent({handleToggleLeft,isActiveIconContent}) {
     const [openAccordion, setOpenAccordion] = useState(null);
     const handleToggle = (id) => {
         setOpenAccordion(openAccordion === id ? null : id);

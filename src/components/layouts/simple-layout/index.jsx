@@ -74,7 +74,7 @@ export default function SimpleDashboardLayout() {
             </div>
 
             {/* Main Content */}
-            <div onClick={() => setIsActive(false)} className="pt-[5rem] w-full lg:w-[calc(100%-256px)] float-right transition-all duration-200 p-5">
+            <div className="pt-[5rem] w-full lg:w-[calc(100%-256px)] float-right transition-all duration-200 p-5">
                 <Outlet />
             </div>
         </div>
