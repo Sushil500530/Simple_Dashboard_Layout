@@ -6,8 +6,8 @@ import SimpleDashboardLayout from "./components/layouts/simple-layout"
 function App() {
   return (
     <>
-      <DashbaordLayout />
-      {/* <SimpleDashboardLayout /> */}
+      {/* <DashbaordLayout /> */}
+      <SimpleDashboardLayout />
       {/* <ModernDashboardLayout /> */}
     </>
   )
