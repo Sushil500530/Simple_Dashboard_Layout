@@ -1,12 +1,11 @@
-import { useState } from "react";
-import { Outlet } from "react-router-dom";
-import { RiMenu3Line } from "react-icons/ri";
-import AccordionLink from "../../reuseable/accordion-link/index.jsx";
-import { dashboardData } from "../../../data/menu-items/index.js";
-import AccordionMenu from "../../reuseable/accordion-menu/index.jsx";
+import React, { useState } from 'react'
+import { dashboardData } from '../../../data/menu-items';
+import { RiMenu3Line } from 'react-icons/ri';
+import { Outlet } from 'react-router-dom';
+import AccordionMenu from '../../reuseable/accordion-menu';
+import AccordionLink from '../../reuseable/accordion-link';
 
-
-export default function SimpleDashboardLayout() {
+export default function SidebarWidthHideLayout() {
     const [isActive, setIsActive] = useState(false);
     const [openAccordion, setOpenAccordion] = useState(null);
 
@@ -22,17 +21,20 @@ export default function SimpleDashboardLayout() {
             <div className="relative">
                 {/* Sidebar */}
                 <div
-                    className={` z-50 fixed bg-[#0c0d2c] text-[#ffffff] shadow-xl overflow-y-auto min-h-screen inset-y-0 left-0 transform 
-                    ${isActive ? "w-64 transition-all duration-200 translate-x-0" : "w-64 transition-all duration-200 -translate-x-full lg:translate-x-0"}`}
-                >
+                    className={`
+                         z-50 fixed bg-[#0c0d2c] text-[#ffffff] shadow-xl overflow-y-auto min-h-screen inset-y-0 left-0 transform 
+                    ${isActive ?
+                         "w-64 transition-all duration-200 lg:-translate-x-full translate-x-0" : 
+                         "w-64 transition-all duration-200 -translate-x-full lg:translate-x-0"}
+                         `}>
                     {/* logo  */}
-                    <div className="common-flex flex-col gap-1 w-full border-b border-b-gray-500 py-3 text-3xl font-bold p-3">
-                       LOGO
+                    <div className="common-flex flex-col gap-1 w-full border-b border-b-gray-500 p-3">
+                        <h1 className="text-3xl font-bold">LOGO</h1>
                     </div>
                     {/* all menu link are here map or called  */}
                     <div className="common-flex flex-col
                      gap-1">
-                        {dashboardData.map((item) => (
+                        {dashboardData?.length > 0 && dashboardData.map((item) => (
                             item?.subMenu ? (
                                 <AccordionMenu
                                     key={item?.id}
@@ -63,9 +65,14 @@ export default function SimpleDashboardLayout() {
                 </div>
 
                 {/* Top navbar */}
-                <div className="z-30 fixed top-0 bg-green-800 text-white right-0 flex items-center justify-between h-16 w-full lg:w-[calc(100%-256px)] px-5 shadow">
+                <div className={`
+                    ${isActive ?
+                        "lg:w-[calc(100%-0px)]" :
+                        "lg:w-[calc(100%-256px)]"}
+                     z-30 fixed top-0 bg-green-800 text-white right-0 flex items-center justify-between h-16 w-full  px-5 shadow`
+                }>
                     <div className="flex items-center">
-                        <button className="text-gray-300 cursor-pointer p-2 block lg:hidden rounded-md" onClick={handleToggleLeft}>
+                        <button className="text-gray-300 cursor-pointer p-2 rounded-md" onClick={handleToggleLeft}>
                             <RiMenu3Line className="text-3xl" />
                         </button>
                     </div>
@@ -74,9 +81,18 @@ export default function SimpleDashboardLayout() {
             </div>
 
             {/* Main Content */}
-            <div onClick={() => setIsActive(false)} className="pt-[5rem] w-full lg:w-[calc(100%-256px)] float-right transition-all duration-200 p-5">
+            <div
+                onClick={() => setIsActive(false)}
+                className={`
+              ${isActive ?
+                        "lg:w-[calc(100%-0px)] " :
+                        "lg:w-[calc(100%-256px)] "
+                    } 
+              pt-[5rem] w-full float-right transition-all duration-200 p-5
+              `}>
                 <Outlet />
             </div>
         </div>
-    );
-};
+    )
+}
+
